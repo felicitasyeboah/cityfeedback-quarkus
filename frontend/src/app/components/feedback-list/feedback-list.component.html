@@ -1,0 +1,35 @@
+<section id="beschwerden-status">
+  <h1>Ihre Feedbacks im Überblick</h1>
+  <div *ngIf="responseMessage" [class]="isError ? 'error' : 'success'">
+    {{ responseMessage }}
+  </div>
+  <div *ngIf="feedbacks && feedbacks.length > 0">
+    <!-- Display the feedback table if there are feedbacks -->
+    <table class="feedback-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titel</th>
+        <th>Kategorie</th>
+        <th>Inhalt</th>
+        <th>Status</th>
+        <th>Antwort</th>
+        <th>Bearbeiter</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let feedback of feedbacks"
+        class="clickable-row">
+        <td>{{ feedback.id }}</td>
+        <td>{{ feedback.title }}</td>
+        <td>{{ feedback.category }}</td>
+        <td>{{ feedback.content }}</td>
+        <td>{{ feedback.status }}</td>
+        <td>{{ feedback.comment }}</td>
+        <td>{{ feedback.employeeName }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
